@@ -2,6 +2,12 @@
 
 . ./vars.sh
 
+[ -d isos ] || mkdir isos
+cd isos
+wget -nc http://mirrors.usc.edu/pub/linux/distributions/centos/6.4/isos/x86_64/CentOS-6.4-x86_64-minimal.iso
+wget -nc http://download.virtualbox.org/virtualbox/4.3.14/VBoxGuestAdditions_4.3.14.iso
+cd ../
+
 VBoxManage createvm --name ${NAME} --ostype ${TYPE} --register
 
 VBoxManage modifyvm ${NAME} \
